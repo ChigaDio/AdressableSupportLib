@@ -47,6 +47,7 @@ namespace AddressableSystem
             return result;
         }
 
+
         protected virtual void Awake()
         {
             if (instance == null)
