@@ -9,8 +9,8 @@ using UnityEngine.SceneManagement;
 namespace AddressableSystem
 {
     /// <summary>
-    /// Œ^ T ‚ğó‚¯æ‚èALoad ‚É Action<T> ‚ğŒÄ‚ÔƒVƒ“ƒvƒ‹À‘•B
-    /// BaseAddressableData ‚ÍŠÇ——p‚ÅA‚±‚±‚É Load ƒƒ\ƒbƒh‚ğŒöŠJ‚·‚éioverride ‚Å‚Í‚È‚¢jB
+    /// å‹ T ã‚’å—ã‘å–ã‚Šã€Load æ™‚ã« Action<T> ã‚’å‘¼ã¶ã‚·ãƒ³ãƒ—ãƒ«å®Ÿè£…ã€‚
+    /// BaseAddressableData ã¯ç®¡ç†ç”¨ã§ã€ã“ã“ã« Load ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å…¬é–‹ã™ã‚‹ï¼ˆoverride ã§ã¯ãªã„ï¼‰ã€‚
     /// </summary>
     public class AddressableData<T> : BaseAddressableData where T : UnityEngine.Object
     {
@@ -21,13 +21,18 @@ namespace AddressableSystem
         protected T typedAddressableObject;
         protected T[] typedAddressableArray;
 
+        public T GetAddressableObjectResult()
+        {
+            return typedAddressableObject;
+        }
+
         public AddressableData(GroupCategory group, AssetCategory category, Scene? sceneLink = null)
             : base(group, category, sceneLink)
         {
         }
 
         /// <summary>
-        /// ’P‘Ìƒ[ƒhBonSuccess ‚É“Ç‚İ‚Ü‚ê‚½ T ‚ğ“n‚·iƒ‰ƒ€ƒ_‚Ìˆø”‚Í T Œ^jB
+        /// å˜ä½“ãƒ­ãƒ¼ãƒ‰ã€‚onSuccess ã«èª­ã¿è¾¼ã¾ã‚ŒãŸ T ã‚’æ¸¡ã™ï¼ˆãƒ©ãƒ ãƒ€ã®å¼•æ•°ã¯ T å‹ï¼‰ã€‚
         /// </summary>
         public async UniTask LoadAsync(string path, Action<T> onSuccess = null, Action<Exception> onError = null)
         {
@@ -69,7 +74,7 @@ namespace AddressableSystem
         }
 
         /// <summary>
-        /// ”z—ñƒ[ƒhBonSuccess ‚É IList<T> ‚ğ“n‚·iƒ‰ƒ€ƒ_‚Ìˆø”‚Í IList<T>jB
+        /// é…åˆ—ãƒ­ãƒ¼ãƒ‰ã€‚onSuccess ã« IList<T> ã‚’æ¸¡ã™ï¼ˆãƒ©ãƒ ãƒ€ã®å¼•æ•°ã¯ IList<T>ï¼‰ã€‚
         /// </summary>
         public async UniTask LoadArrayAsync(string path, Action<IList<T>> onSuccess = null, Action<Exception> onError = null)
         {
@@ -122,7 +127,7 @@ namespace AddressableSystem
         }
 
         /// <summary>
-        /// GameObject ‚Ìê‡‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‰»‚µ‚Ä•Ô‚·i“à•”‚Å T ‚ğQÆj
+        /// GameObject ã®å ´åˆã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã—ã¦è¿”ã™ï¼ˆå†…éƒ¨ã§ T ã‚’å‚ç…§ï¼‰
         /// </summary>
         public GameObject Instantiate(string name = null)
         {
@@ -140,7 +145,7 @@ namespace AddressableSystem
         }
 
         /// <summary>
-        /// Release À‘•
+        /// Release å®Ÿè£…
         /// </summary>
         public override void Release()
         {
@@ -165,7 +170,7 @@ namespace AddressableSystem
                 Addressables.Release(arrayHandle);
             }
 
-            // ƒ†[ƒU‚Ì—v–]‚Ç‚¨‚èF–ß‚è’l‚ğ–³‹‚µ‚ÄŒÄ‚Ô‚¾‚¯iŠÂ‹«‚É‚æ‚Á‚Ä‚Í void ˆµ‚¢j
+            // ãƒ¦ãƒ¼ã‚¶ã®è¦æœ›ã©ãŠã‚Šï¼šæˆ»ã‚Šå€¤ã‚’ç„¡è¦–ã—ã¦å‘¼ã¶ã ã‘ï¼ˆç’°å¢ƒã«ã‚ˆã£ã¦ã¯ void æ‰±ã„ï¼‰
             if (addressableObject != null)
             {
                 try

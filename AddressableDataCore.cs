@@ -90,7 +90,7 @@ namespace AddressableSystem
                 try
                 {
                     dataContainer?.AutoRelease();
-                    Debug.Log(dataContainer?.GetGroupStats());
+                    
                     await UniTask.Delay(1000, delayTiming: PlayerLoopTiming.Update, cancellationToken: token);
                 }
                 catch (OperationCanceledException) { }
@@ -195,6 +195,11 @@ namespace AddressableSystem
         {
             dataContainer?.ReleaseGroup(group);
             Resources.UnloadUnusedAssets();
+        }
+
+        public void ReleaseAssetsAll(AssetCategory asset)
+        {
+            dataContainer?.ReleaseAssetCategory(asset);
         }
 
         /// <summary>

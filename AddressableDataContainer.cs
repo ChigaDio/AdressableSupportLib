@@ -43,6 +43,7 @@ namespace AddressableSystem
         void AutoRelease();
         void ReleaseGroup(GroupCategory group);
         void ReleaseCategory(GroupCategory group, AssetCategory category);
+        void ReleaseAssetCategory(AssetCategory asset);
         string GetGroupStats();
     }
 
@@ -222,6 +223,19 @@ namespace AddressableSystem
             }
             categoryMap.Clear();
             groupDataMap.Remove(group);
+        }
+
+        public void ReleaseAssetCategory(AssetCategory asset)
+        {
+            foreach(var list in groupDataMap.Values)
+            {
+                if (!list.ContainsKey(asset)) continue;
+                foreach (var data in list[asset])
+                {
+                    data.Release();
+                }
+                list[asset].Clear();
+            }
         }
 
         public void ReleaseCategory(GroupCategory group, AssetCategory category)

@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 namespace AddressableSystem
 {
     /// <summary>
-    /// ŠÇ——p‚Ì”ñƒWƒFƒlƒŠƒbƒNŠî’êB
-    /// ƒ[ƒhƒƒ\ƒbƒh©‘Ì‚Í”h¶‘¤‚ÉÀ‘•‚³‚¹‚éiT Œ^‚Ìƒ‰ƒ€ƒ_‚ğó‚¯æ‚éjB
+    /// ç®¡ç†ç”¨ã®éã‚¸ã‚§ãƒãƒªãƒƒã‚¯åŸºåº•ã€‚
+    /// ãƒ­ãƒ¼ãƒ‰ãƒ¡ã‚½ãƒƒãƒ‰è‡ªä½“ã¯æ´¾ç”Ÿå´ã«å®Ÿè£…ã•ã›ã‚‹ï¼ˆT å‹ã®ãƒ©ãƒ ãƒ€ã‚’å—ã‘å–ã‚‹ï¼‰ã€‚
     /// </summary>
     public abstract class BaseAddressableData
     {
@@ -36,7 +36,7 @@ namespace AddressableSystem
         public void MarkAsUsed() => isUsed = true;
 
         /// <summary>
-        /// ”h¶‚ÅÀ‘•‚·‚éiŒ^•t‚«‚Ì Load/LoadArray ‚ğÀ‘•‚·‚é‚±‚ÆjB
+        /// æ´¾ç”Ÿã§å®Ÿè£…ã™ã‚‹ï¼ˆå‹ä»˜ãã® Load/LoadArray ã‚’å®Ÿè£…ã™ã‚‹ã“ã¨ï¼‰ã€‚
         /// </summary>
         public abstract void Release();
     }
