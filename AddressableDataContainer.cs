@@ -12,6 +12,7 @@ namespace AddressableSystem
     {
         Prefab,
         Texture,
+        Sprite,
         Audio,
         UI,
         Other

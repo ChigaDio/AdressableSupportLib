@@ -25,6 +25,10 @@ namespace AddressableSystem
         {
             return typedAddressableObject;
         }
+        public T[] GetAddressableObjectArrayResult()
+        {
+            return typedAddressableArray;
+        }
 
         public AddressableData(GroupCategory group, AssetCategory category, Scene? sceneLink = null)
             : base(group, category, sceneLink)
